@@ -1,30 +1,17 @@
 import { ADD, SUB } from './../constants'
 
-export const add = () => {
-    return {
-        type: ADD
-    }
-}
+export const add = () => ({ type: ADD })
 
-export const sub = () => {
-    return {
-        type: SUB
-    }
-}
+export const sub = () => ({ type: SUB })
 
-const asyncFetch = async (data) => {
-    console.log(data)
-    return new Promise(resolve=>{
-        setTimeout(()=>{
-            resolve(data)
-            console.log(data)
-        },2000)
+const asyncFetch = async (wait) =>
+    new Promise(resolve => {
+        setTimeout(() => {
+            resolve(wait)
+        }, wait * 1000)
     })
-}
 
-export const addAsync = () => {
-    return {
-        type: ADD,
-        payload: asyncFetch(new Date().getTime())
-    }
-}
+export const addAsync = (wait) => ({
+    type: ADD,
+    payload: asyncFetch(wait)
+})

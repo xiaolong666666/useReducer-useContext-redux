@@ -1,4 +1,4 @@
-import { ADD, SUB } from './../actions'
+import { ADD, SUB } from './../constants'
 
 export const counter = (state, action) => {
     switch (action.type) {

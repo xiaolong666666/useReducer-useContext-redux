@@ -5,11 +5,11 @@ import { addAsync } from './../actions'
 const GrondChild = () => {
     let { state, dispatch } = useContext(Context)
     return (
-        <div>
+        <>
             <h4>GrondChild组件</h4>
             <p>{state.counter.count}</p>
-            <button onClick={() => dispatch(addAsync())}>异步+</button>
-        </div>
+            <button onClick={() => dispatch(addAsync(1))}>异步+</button>
+        </>
     );
 };
 
