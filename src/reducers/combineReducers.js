@@ -1,8 +1,9 @@
 export const combineReducers = (reducer) =>
     (state, action) => {
-        const newState = {}
-        Object.keys(reducer).forEach(key => {
-            newState[key] = reducer[key](state[key],action)
-        })
-        return newState
+        const { type } = action
+        const [currentNameSpace] = type.split('/')
+        return {
+            ...state,
+            [currentNameSpace]: reducer[currentNameSpace](state[currentNameSpace], action)
+        }
     }

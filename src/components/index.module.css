@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.container > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
